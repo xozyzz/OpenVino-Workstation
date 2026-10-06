@@ -10,9 +10,9 @@ Local terminal chat running OpenVINO GenAI-compatible models (currently Gemma 3 
 
 
 
-Work in progress. Terminal chat is functional (multi-turn conversation working). 
+Work in progress. Terminal chat is functional (multi-turn conversation working). Vision support is functional via (URL, Image path).
 
-Planned next: vision support, then RAG, then a GUI.
+Planned next: RAG, then a GUI.
 
 
 
