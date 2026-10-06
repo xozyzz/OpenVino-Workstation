@@ -31,7 +31,7 @@ def main():
         turn_image = []                                         #Temporary storage of images for her context
         try:
             user_input = input("You: ").strip()
-        except EOFError:                                        #Leave from chat (For Window's ctrl+z), (For Linux ctrl+d)
+        except EOFError:                                        #Leave from chat (For Window's ctrl+z), (For Linux/Mac ctrl+d)
             sys.exit()
         if len(user_input) < 1:                                 #If user doesn't type anything chat prompt again
             continue
@@ -45,7 +45,7 @@ def main():
         add_message(history,chat_history,"user",user_input)
         print("Gemma: ", end="")
 
-        #OpenVino.VLMpipeline format = prompt, Chat_History = Context recorded, images - vector converted, max_new_tokens - token generation limit for that prompt, streamer - for smooth text generation as gemma generates the tokens. 
+        #OpenVino.VLMpipeline format = prompt, Chat_History - Context recorded, images - vector converted, max_new_tokens - token generation limit for that prompt, streamer - for smooth text generation as gemma generates the tokens. 
         output = pipe.generate(chat_history,images=turn_image, max_new_tokens= max_token_use, streamer=streamer)
         
         print()

@@ -2,8 +2,8 @@ import os
 
 
 def main():
-    read_folder()
-
+#    read_folder()
+    chunking()
 
 def read_folder():                                                                      #reading folders to give as output, then would be used for chunking.
     
@@ -14,8 +14,23 @@ def read_folder():                                                              
             if name.endswith(".md"):
                 full_path = os.path.join(folder,name)
                 with open(full_path,encoding="utf-8") as file:                          #opnes the .md files.
-                    print(file.read())                                                  #Later we'll call this function.
+                    text = file.read()
 
+
+def chunking():
+    text = ("This is a test for evaluating the chunking of the programm we wrote. This is a fixed size chunking programm.")
+    chunks = text.split(" ")
+    chunking_range = len(chunks)//3
+    remaining = len(chunks)%3
+    
+    if remaining in (1,2):
+        chunking_range += 1
         
+    a , b = 0 , 3
+    for _ in range(chunking_range):
+        print(chunks[a:b])
+        a += 3
+        b += 3
+
 if __name__ == "__main__":
     main()
